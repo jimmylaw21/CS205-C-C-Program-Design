@@ -4,6 +4,8 @@
 
 // 帮助系统
 void Calculator::helper() {
+  clearEmptySpace();
+  checkInfix();
   exit();
   setLanguage();
   welcome();
@@ -78,6 +80,33 @@ void Calculator::clear() {
     isHelp = true;
     system("clear");
   }
+}
+
+void Calculator::checkInfix() {
+  if (infix.length() <= 0) {
+    if (language == 0) {
+      cout << "表达式为空！" << endl;
+    } else if (language == 1) {
+      cout << "The expression is empty!" << endl;
+    }
+    isHelp = true;
+  }
+}
+
+void Calculator::clearEmptySpace(){
+    trim(infix);
+}
+
+void Calculator::trim(string &s)
+{
+	int index = 0;
+	if(!s.empty())
+	{
+		while( (index = s.find(' ',index)) != -1)
+		{
+			s.erase(index,1);
+		}
+	}
 }
 
 void Calculator::printWelcomeEnglish() {
