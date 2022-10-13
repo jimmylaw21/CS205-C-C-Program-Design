@@ -34,18 +34,18 @@ public:
                         string funcName); // 检查表达式中是否包含某函数
   string replaceMathFunc(string expression); // 替换表达式中所有数学函数
 
-  string getSqrt(string expression);         // 处理sqrt函数
-  string getMax(string expression);          // 处理max函数
-  string getMin(string expression);          // 处理min函数
-  string getRandom(string expression);       // 处理random函数
-  string getExp(string expression);          // 处理exp函数
-  string getAbs(string expression);          // 处理abs函数
-  string getSin(string expression);          // 处理sin函数
-  string getCos(string expression);          // 处理cos函数
-  string getTan(string expression);          // 处理tan函数
-  string getCeil(string expression);         // 处理ceil函数
-  string getFloor(string expression);        // 处理floor函数
-  string getLog(string expression);          // 处理log函数
+  string getSqrt(string expression);   // 处理sqrt函数
+  string getMax(string expression);    // 处理max函数
+  string getMin(string expression);    // 处理min函数
+  string getRandom(string expression); // 处理random函数
+  string getExp(string expression);    // 处理exp函数
+  string getAbs(string expression);    // 处理abs函数
+  string getSin(string expression);    // 处理sin函数
+  string getCos(string expression);    // 处理cos函数
+  string getTan(string expression);    // 处理tan函数
+  string getCeil(string expression);   // 处理ceil函数
+  string getFloor(string expression);  // 处理floor函数
+  string getLog(string expression);    // 处理log函数
 
   // 工具函数
   vector<string> split(const std::string &strIn, char delim); // 字符串分割
@@ -53,14 +53,18 @@ public:
                     string newStr); // 替换str中所有相同的oldStr为newStr
 
   // 小助手
-  void helper();  //帮助系统
-  void welcome(); // 欢迎界面
-  void help();     // 帮助信息
-  void about();    // 关于信息
-  void exit();     // 退出程序
+  void helper();      // 帮助系统
+  void welcome();     // 欢迎界面
+  void help();        // 帮助信息
+  void about();       // 关于信息
+  void exit();        // 退出程序
   void setLanguage(); // 设置语言
-  void setscale(); // 设置精度
-  void clear();    // 清空屏幕
+  void setscale();    // 设置精度
+  void clear();       // 清空屏幕
+
+  void checkInfix();      // 检查表达式是否合法
+  void clearEmptySpace(); // 清除表达式中的空格
+  void trim(string &s);   // 去除string所有空格
 
   void printWelcomeEnglish(); // 打印欢迎界面英文版
   void printWelcomeChinese(); // 打印欢迎界面中文版
@@ -69,15 +73,14 @@ public:
   void printAboutEnglish();   // 打印关于信息英文版
   void printAboutChinese();   // 打印关于信息中文版
 
-
   // 数据成员
   string operatorSym; // 运算符号
   string infix;       // 表达式缓存
-  bool isExit;  // 是否退出
-  bool isHelp;  // 是否帮助
+  bool isExit;        // 是否退出
+  bool isHelp;        // 是否帮助
 
 private:
-  int language; // 语言选择
+  int language;                  // 语言选择
   vector<string> postfix;        // 后缀表达式向量
   stack<char> symStack;          // 符号栈
   stack<BigDecimal> figStack;    // 数字栈
