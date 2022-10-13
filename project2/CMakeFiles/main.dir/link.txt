@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/main.dir/Main.cpp.o CMakeFiles/main.dir/BigDecimal.cpp.o CMakeFiles/main.dir/Calculator.cpp.o CMakeFiles/main.dir/MathFunc.cpp.o CMakeFiles/main.dir/Variables.cpp.o CMakeFiles/main.dir/Helper.cpp.o  -o main 
