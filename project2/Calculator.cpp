@@ -42,10 +42,8 @@ void Calculator::getFormat() {
   stdInfix = infix;
 
   // 实现正负数
-  // for (int i = 0; i < stdInfix.length(); i++) {
-  // //string下标调用运算符时可能会导致类型溢出
   for (size_t i = 0; i < stdInfix.size();
-       i++) { // string.size()返回size_type类型，避免下标运算时的类型溢出
+       i++) { // 从左到右扫描表达式，将负数转换为0-的形式
     if (stdInfix[i] == '-' || stdInfix[i] == '+') { //-x转换为0-x，+x转化为0+x
       if (i == 0) {
         stdInfix.insert(0, 1, '0');

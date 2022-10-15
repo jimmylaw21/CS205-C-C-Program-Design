@@ -49,6 +49,7 @@ public:
 
   // 工具函数
   vector<string> split(const std::string &strIn, char delim); // 字符串分割
+  void trim(string &s); // 去除string所有空格
   string replaceAll(string str, string oldStr,
                     string newStr); // 替换str中所有相同的oldStr为newStr
 
@@ -62,9 +63,9 @@ public:
   void setscale();    // 设置精度
   void clear();       // 清空屏幕
 
-  void checkInfix();      // 检查表达式是否合法
-  void clearEmptySpace(); // 清除表达式中的空格
-  void trim(string &s);   // 去除string所有空格
+  void checkInfix();           // 检查表达式是否合法
+  void clearEmptySpace();      // 清除表达式中的空格
+  void checkBracketMatching(); // 检查括号是否匹配
 
   void printWelcomeEnglish(); // 打印欢迎界面英文版
   void printWelcomeChinese(); // 打印欢迎界面中文版

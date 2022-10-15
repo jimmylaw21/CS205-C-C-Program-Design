@@ -6,6 +6,7 @@
 void Calculator::helper() {
   clearEmptySpace();
   checkInfix();
+  checkBracketMatching();
   exit();
   setLanguage();
   welcome();
@@ -70,8 +71,18 @@ void Calculator::about() {
 // 退出程序
 void Calculator::exit() {
   if (infix == "exit") {
+    string exitStr;
     isHelp = true;
-    isExit = true;
+    if (language == 1) {
+      cout << "Are you sure to exit? Print[Y] to exit, otherwise will return"
+           << endl;
+    } else if (language == 0) {
+      cout << "确认退出吗？在屏幕中输入[Y]则退出，否则将返回" << endl;
+    }
+    cin >> exitStr;
+    if (exitStr == "Y") {
+      isExit = true;
+    }
   }
 }
 // 清空屏幕
@@ -93,20 +104,37 @@ void Calculator::checkInfix() {
   }
 }
 
-void Calculator::clearEmptySpace(){
-    trim(infix);
+void Calculator::clearEmptySpace() { trim(infix); }
+
+// 检查括号()[]{}是否一一匹配
+void Calculator::checkBracketMatching() {
+  int leftBracketNum = 0;
+  int rightBracketNum = 0;
+  for (int i = 0; i < infix.length(); i++) {
+    if (infix[i] == '(' || infix[i] == '[' || infix[i] == '{') {
+      leftBracketNum++;
+    }
+    if (infix[i] == ')' || infix[i] == ']' || infix[i] == '}') {
+      rightBracketNum++;
+    }
+  }
+  if (leftBracketNum != rightBracketNum) {
+    if (language == 0) {
+      cout << "括号不匹配！" << endl;
+    } else if (language == 1) {
+      cout << "The brackets are not matching!" << endl;
+    }
+    isHelp = true;
+  }
 }
 
-void Calculator::trim(string &s)
-{
-	int index = 0;
-	if(!s.empty())
-	{
-		while( (index = s.find(' ',index)) != -1)
-		{
-			s.erase(index,1);
-		}
-	}
+void Calculator::trim(string &s) {
+  int index = 0;
+  if (!s.empty()) {
+    while ((index = s.find(' ', index)) != -1) {
+      s.erase(index, 1);
+    }
+  }
 }
 
 void Calculator::printWelcomeEnglish() {

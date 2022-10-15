@@ -18,7 +18,8 @@ void Calculator::checkUnknownVar(string expression) {
     if (!(isdigit(varValue[i]) || varValue[i] == '.' || varValue[i] == '+' ||
           varValue[i] == '-' || varValue[i] == '*' || varValue[i] == '/' ||
           varValue[i] == '^' || varValue[i] == '!' || varValue[i] == '(' ||
-          varValue[i] == ')')) {
+          varValue[i] == ')' || varValue[i] == '[' || varValue[i] == ']' ||
+          varValue[i] == '{' || varValue[i] == '}' || varValue[i] == '|')) {
       cerr << "The variable does not exist!" << endl;
     }
   }
