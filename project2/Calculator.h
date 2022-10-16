@@ -85,7 +85,7 @@ public:
   string infix;       // 表达式缓存
   bool isExit;        // 是否退出
   bool isHelp;        // 是否帮助
-  bool isAnnotating;       // 是否
+  bool isAnnotating;  // 是否注释
 
 private:
   int language;                  // 语言选择
