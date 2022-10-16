@@ -78,7 +78,7 @@ public:
   bool isSingleAnnotation();     // 检查是否为单行注释
   bool isMultiAnnotationStart(); // 检查是否为多行注释开始
   bool isMultiAnnotationEnd();   // 检查是否为多行注释结束
-  void annotationCheck();           // 检查是否为注释
+  void annotationCheck();        // 检查是否为注释
 
   // 数据成员
   string operatorSym; // 运算符号
