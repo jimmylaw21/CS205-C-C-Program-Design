@@ -66,6 +66,7 @@ public:
   void checkInfix();           // 检查表达式是否合法
   void clearEmptySpace();      // 清除表达式中的空格
   void checkBracketMatching(); // 检查括号是否匹配
+  bool checkArithmeticExpressionValid(string expression);
 
   void printWelcomeEnglish(); // 打印欢迎界面英文版
   void printWelcomeChinese(); // 打印欢迎界面中文版

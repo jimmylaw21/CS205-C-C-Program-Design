@@ -1,7 +1,7 @@
-//MathFunc.cpp: Calculator类的变量表达式实现文件
+// MathFunc.cpp: Calculator类的变量表达式实现文件
 
-#include "Calculator.h"
 #include "BigDecimal.h"
+#include "Calculator.h"
 #include <cstring>
 
 // 变量表达式计算
@@ -14,14 +14,8 @@ void Calculator::checkUnknownVar(string expression) {
   } else {
     varValue = expression;
   }
-  for (int i = 0; i < varValue.length(); ++i) {
-    if (!(isdigit(varValue[i]) || varValue[i] == '.' || varValue[i] == '+' ||
-          varValue[i] == '-' || varValue[i] == '*' || varValue[i] == '/' ||
-          varValue[i] == '^' || varValue[i] == '!' || varValue[i] == '(' ||
-          varValue[i] == ')' || varValue[i] == '[' || varValue[i] == ']' ||
-          varValue[i] == '{' || varValue[i] == '}' || varValue[i] == '|')) {
-      cerr << "The variable does not exist!" << endl;
-    }
+  if (!checkArithmeticExpressionValid(varValue)) {
+    cerr << "The variable does not exist!" << endl;
   }
 }
 
@@ -42,7 +36,7 @@ bool Calculator::isVariableNameValid(string expression) {
       break;
     }
   }
-  if(varName == "PI" || varName == "E" || varName == "ans"){
+  if (varName == "PI" || varName == "E" || varName == "ans") {
     return false;
   }
   return true;
@@ -113,8 +107,6 @@ void Calculator::Assign() {
   pretreat(infix);
   // checkUnknownVar(infix);
 }
-
-
 
 vector<string> Calculator::split(const std::string &strIn, char delim) {
   char *str = const_cast<char *>(strIn.c_str());

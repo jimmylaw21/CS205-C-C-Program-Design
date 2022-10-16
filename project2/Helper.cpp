@@ -1,6 +1,7 @@
 #include "BigDecimal.h"
 #include "Calculator.h"
 #include <iostream>
+#include<regex>
 
 // 帮助系统
 void Calculator::helper() {
@@ -165,6 +166,14 @@ void Calculator::annotationCheck(){
         isHelp=true;
     }
     
+}
+
+// use regex to check complex arithmetic expression with brackets valid
+// 0-9 . + - * / ( ) [ ] { } ^ % ! |
+bool Calculator::checkArithmeticExpressionValid(string expression) {
+  std::regex e(
+      "^[0-9.\\+\\-\\*\\/\\(\\)\\[\\]\\{\\}\\^\\%\\!\\|]+$");
+  return std::regex_match(expression, e);
 }
 
 void Calculator::trim(string &s) {
