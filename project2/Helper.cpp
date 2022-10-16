@@ -7,6 +7,7 @@ void Calculator::helper() {
   clearEmptySpace();
   checkInfix();
   checkBracketMatching();
+  annotationCheck();
   exit();
   setLanguage();
   welcome();
@@ -126,6 +127,44 @@ void Calculator::checkBracketMatching() {
     }
     isHelp = true;
   }
+}
+
+bool Calculator::isSingleAnnotation(){
+    if(infix.length()<2){
+        return false;
+    }
+    return infix[0]=='/'&&infix[1]=='/';
+}
+
+bool Calculator::isMultiAnnotationStart(){
+    if(infix.length()<2){
+        return false;
+    }
+    return infix[0]=='/'&&infix[1]=='*';
+}
+
+bool Calculator::isMultiAnnotationEnd(){
+    if(infix.length()<2){
+        return false;
+    }
+    return infix[infix.length()-2]=='*'&&infix[infix.length()-1]=='/';
+}
+
+void Calculator::annotationCheck(){
+    if(isSingleAnnotation()){
+        isHelp=true;
+    }
+    if(isMultiAnnotationStart()){
+        isAnnotating=true;
+    }
+    if(isMultiAnnotationEnd()){
+        isAnnotating=false;
+        isHelp=true;
+    }
+    if(isAnnotating){
+        isHelp=true;
+    }
+    
 }
 
 void Calculator::trim(string &s) {

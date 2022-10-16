@@ -74,11 +74,17 @@ public:
   void printAboutEnglish();   // 打印关于信息英文版
   void printAboutChinese();   // 打印关于信息中文版
 
+  bool isSingleAnnotation();     // 检查是否为单行注释
+  bool isMultiAnnotationStart(); // 检查是否为多行注释开始
+  bool isMultiAnnotationEnd();   // 检查是否为多行注释结束
+  void annotationCheck();           // 检查是否为注释
+
   // 数据成员
   string operatorSym; // 运算符号
   string infix;       // 表达式缓存
   bool isExit;        // 是否退出
   bool isHelp;        // 是否帮助
+  bool isAnnotating;       // 是否
 
 private:
   int language;                  // 语言选择

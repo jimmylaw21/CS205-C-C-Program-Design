@@ -34,6 +34,7 @@ Calculator::Calculator() { // 构造函数，初始化成员变量
   language = 1;
   isExit = false;
   isHelp = false;
+  isAnnotating = false;
 }
 
 // 表达式自定义标准格式化
