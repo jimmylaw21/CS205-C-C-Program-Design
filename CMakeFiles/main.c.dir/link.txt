@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/main.c.dir/mat.c.o CMakeFiles/main.c.dir/matmul.c.o  -o main.c  -Wl,-rpath,/opt/OpenBLAS/lib /opt/OpenBLAS/lib/libopenblas.so 
